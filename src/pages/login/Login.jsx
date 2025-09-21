@@ -36,20 +36,35 @@ const Login = () => {
   return (
     <div className="login">
       <form data-testid="form" onSubmit={handleLogin}>
-      {user && <span>Welcome, {user.displayName}!</span>}
+        {user && <span>Welcome, {user.displayName}!</span>}
+        <h2>Masuk</h2>
         <input
           id="email"
           type="email"
-          placeholder="Enter your email" 
+          placeholder="Masukkan email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           id="password"
           type="password"
-          placeholder="Enter your password" 
+          placeholder="Masukkan password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <button type="submit" data-testid="submit">Login</button>
+        <button type="submit" data-testid="submit">Masuk</button>
+        <div className="navigation">
+          <span>Belum punya akun? </span>
+          <button
+            type="button"
+            className="link-button"
+            onClick={() => navigate("/register")}
+          >
+            Daftar
+          </button>
+        </div>
         <div className="items">
           <div className="item">
             {darkMode? (

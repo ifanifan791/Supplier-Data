@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
-import Mylist from "./pages/Mylist/Mylist";
+import Mylist from "./pages/mylist/Mylist";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { productInputs, userInputs, categoryInputs } from "./formsource";
 import "./components/style/dark.scss";
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route path="login" element={<NotRequireAuth><Login /></NotRequireAuth>}></Route>
+            <Route path="register" element={<NotRequireAuth><Register /></NotRequireAuth>}></Route>
             <Route index element={<RequireAuth><Home /></RequireAuth>}></Route>
             <Route path="users">
               <Route index element={<RequireAuth><List columns={userColumns}/></RequireAuth>}></Route>
